@@ -26,3 +26,12 @@ jobs:
 
       - name: Check lockfiles' diff
         run: diff <(bun bun.lockb) yarn.lock
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          projectName: blog-dev
+          directory: ./public
+          gitHubToken: ${{ secrets.GTIHUB_TOKEN }}
