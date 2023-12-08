@@ -24,3 +24,5 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Check lockfiles' diff
+        run: diff <(bun bun.lockb) yarn.lock
