@@ -1,23 +1,22 @@
-import { json, type MetaFunction } from '@remix-run/cloudflare'
-import { Link, useLoaderData } from '@remix-run/react'
 import { createClient } from '~/cms/client'
 import parse from 'html-react-parser'
-import { cmsBlogContentListSchema } from '~/cms/schema'
 
 import type { EventContext } from '@cloudflare/workers-types'
+import { json, MetaFunction } from '@remix-run/cloudflare'
+import { cmsBlogContentSchema } from '~/cms/schema'
+import { useLoaderData } from '@remix-run/react'
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: 'New Remix App' },
-    {
-      name: 'description',
-      content: 'Welcome to Remix!',
-    },
-  ]
+  return []
 }
 
-export const loader = async ({ context }: { context: EventContext<Env, string, unknown> }) => {
-  // FIXME: いい感じにContextに含めるようにしたい
+export const loader = async ({
+  params,
+  context,
+}: {
+  params: { articleId: string }
+  context: EventContext<Env, string, unknown>
+}) => {
   const apiKey = context.env.MICROCMS_API_KEY
   const apiVersion = context.env.MICROCMS_API_VERSION
   const serviceName = context.env.MICROCMS_SERVICE_NAME
@@ -29,7 +28,7 @@ export const loader = async ({ context }: { context: EventContext<Env, string, u
 
   const client = createClientResult.value
 
-  const fetchResult = await client.getList(cmsBlogContentListSchema)
+  const fetchResult = await client.get(params.articleId, cmsBlogContentSchema)
   if (fetchResult.status === 'err') {
     throw new Error(fetchResult.error.message)
   }
@@ -37,17 +36,17 @@ export const loader = async ({ context }: { context: EventContext<Env, string, u
   return json(fetchResult.value)
 }
 
-export default function Index() {
+const Index = () => {
   const data = useLoaderData<typeof loader>()
+
   return (
     <div>
-      {data.contents.map((content) => (
-        <div>
-          <h1>
-            <Link to={`/articles/${content.id}`}>{parse(content.title)}</Link>
-          </h1>
-        </div>
-      ))}
+      <h1>
+        <span>{data.title}</span>
+      </h1>
+      <div>{data.content ? parse(data.content) : ''}</div>
     </div>
   )
 }
+
+export default Index
