@@ -1,10 +1,8 @@
 import type { LinksFunction } from '@remix-run/cloudflare'
-import { cssBundleHref } from '@remix-run/css-bundle'
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
+import resetCss from 'the-new-css-reset/css/reset.css'
 
-export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
-]
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: resetCss }]
 
 export default function App() {
   return (
