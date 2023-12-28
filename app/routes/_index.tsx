@@ -5,6 +5,7 @@ import parse from 'html-react-parser'
 import { cmsBlogContentListSchema } from '~/cms/schema'
 
 import type { EventContext } from '@cloudflare/workers-types'
+import { Box } from '@radix-ui/themes'
 
 export const meta: MetaFunction = () => {
   return [
@@ -40,7 +41,7 @@ export const loader = async ({ context }: { context: EventContext<Env, string, u
 export default function Index() {
   const data = useLoaderData<typeof loader>()
   return (
-    <div>
+    <Box px="4">
       {data.contents.map((content) => (
         <div>
           <h1>
@@ -48,6 +49,6 @@ export default function Index() {
           </h1>
         </div>
       ))}
-    </div>
+    </Box>
   )
 }
