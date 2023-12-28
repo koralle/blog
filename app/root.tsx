@@ -23,7 +23,9 @@ export default function App() {
       </head>
       <body className={bodyRoot}>
         <Theme appearance="light">
+          <header></header>
           <Outlet />
+          <footer></footer>
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
