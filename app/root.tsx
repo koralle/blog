@@ -3,41 +3,50 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import resetCss from 'the-new-css-reset/css/reset.css'
 import radixThemeCss from '@radix-ui/themes/styles.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
-import { bodyRoot, htmlRoot } from '~/global.css'
+import { bodyRootStyles, gridRootStyles, htmlRootStyles, themeRootStyles } from '~/global.css'
 import { Box, Container, Grid, Theme } from '@radix-ui/themes'
 import { Header } from '~/components/header'
 import { Footer } from '~/components/footer'
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
   { rel: 'stylesheet', href: resetCss },
   { rel: 'stylesheet', href: radixThemeCss },
+  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
 export default function App() {
   return (
-    <html lang="en" className={htmlRoot}>
+    <html lang="en" className={htmlRootStyles}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
-      <body className={bodyRoot}>
-        <Theme appearance="dark" style={{ height: '100%' }}>
+      <body className={bodyRootStyles}>
+        <Theme appearance="dark" className={themeRootStyles}>
           <Grid
-            rows="3"
+            flow="column"
+            rows={`
+              [main-start header-start] min-content
+              [header-end content-start] 1fr
+              [content-end footer-start] min-content
+              [footer-end main-end]
+              `}
             columns="1"
             display="grid"
-            style={{ height: '100%', gridTemplateRows: 'auto 1fr auto' }}
+            height="100%"
+            className={gridRootStyles}
           >
             <header>
               <Header />
             </header>
-            <Container>
+            <Container py="4" style={{ backgroundColor: '#333333' }}>
               <Outlet />
             </Container>
-            <Footer />
+            <footer>
+              <Footer />
+            </footer>
           </Grid>
           <ScrollRestoration />
           <Scripts />
