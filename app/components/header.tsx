@@ -1,31 +1,43 @@
-import { Box, Container, Flex, Heading, IconButton, Switch, Text } from '@radix-ui/themes'
-import { Link } from '@remix-run/react'
+import { Box, Container, Flex, Grid, Link, Text } from '@radix-ui/themes'
+import { Link as RemixLink } from '@remix-run/react'
 import { SITE_TITlE } from '~/consts'
 
 const Header = () => {
   return (
-    <Container py="4">
-      <Flex display="flex" direction="row" px="4">
-        <Box height="8">
-          <Link to="/" target="_self">
-            <Text as="span" size="6">
-              {SITE_TITlE}
-            </Text>
+    <Container px="4" py="4">
+      <Grid flow="column" columns="auto 1fr">
+        <Box pr="4">
+          <Link asChild weight="medium" color="gray">
+            <RemixLink to="/" target="_self">
+              <Text as="span" size="6">
+                {SITE_TITlE}
+              </Text>
+            </RemixLink>
           </Link>
         </Box>
-        <Flex display="flex" direction="row" height="8">
-          <Link to="/" target="_self">
-            <Text as="span" size="6">
-              About
-            </Text>
-          </Link>
-          <Link to="/" target="_self">
-            <Text as="span" size="6">
-              Articles
-            </Text>
-          </Link>
-        </Flex>
-      </Flex>
+        <Box width="auto">
+          <Flex display="flex" justify="end">
+            <Box px="4">
+              <Link asChild weight="bold" color="gray">
+                <RemixLink to="/" target="_self">
+                  <Text as="span" size="4">
+                    About
+                  </Text>
+                </RemixLink>
+              </Link>
+            </Box>
+            <Box px="4">
+              <Link asChild weight="bold" color="gray">
+                <RemixLink to="/" target="_self">
+                  <Text as="span" size="4">
+                    Articles
+                  </Text>
+                </RemixLink>
+              </Link>
+            </Box>
+          </Flex>
+        </Box>
+      </Grid>
     </Container>
   )
 }
