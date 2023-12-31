@@ -1,6 +1,8 @@
+import React from 'react'
 import type { Preview } from '@storybook/react'
+import { Theme } from '@radix-ui/themes'
 
-const preview: Preview = {
+const preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -9,7 +11,15 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    layout: 'fullscreen',
   },
-}
+  decorators: [
+    (Story) => (
+      <Theme>
+        <Story />
+      </Theme>
+    ),
+  ],
+} satisfies Preview
 
 export default preview
