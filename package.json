@@ -44,6 +44,7 @@
     "@storybook/test": "^7.6.6",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
+    "@vanilla-extract/vite-plugin": "^3.9.3",
     "bun-types": "^1.0.15",
     "storybook": "^7.6.6",
     "typescript": "^5.1.0",
