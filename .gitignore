@@ -10,3 +10,7 @@ node_modules
 
 # .DS_Store
 **/.DS_Store
+
+# .yarn
+**/.yarn
+
