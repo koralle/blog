@@ -10,4 +10,5 @@ export const htmlRoot = style({
 
 export const bodyRoot = style({
   height: '100%',
+  font: 'inherit',
 })
