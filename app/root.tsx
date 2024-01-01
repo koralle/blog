@@ -1,10 +1,11 @@
 import type { LinkDescriptor, LinksFunction } from '@remix-run/cloudflare'
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react'
+import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
 import radixThemeCss from '@radix-ui/themes/styles.css'
 import { Theme } from '@radix-ui/themes'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { bodyRoot, htmlRoot } from '~/global.css'
+import { Layout } from '~/layout'
 
 const WebFontLinks: LinkDescriptor[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -36,12 +37,11 @@ export default function App() {
         <Links />
       </head>
       <body className={bodyRoot}>
-        <Theme appearance="light">
+        <Layout>
           <Outlet />
-          <ScrollRestoration />
-          <Scripts />
-          <LiveReload />
-        </Theme>
+        </Layout>
+        <LiveReload />
+        <Scripts />
       </body>
     </html>
   )
