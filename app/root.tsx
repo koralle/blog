@@ -38,9 +38,9 @@ export default function App() {
       <body className={bodyRoot}>
         <Theme appearance="light">
           <Outlet />
-          <Scripts />
-          <LiveReload />
         </Theme>
+        <LiveReload />
+        <Scripts />
       </body>
     </html>
   )
