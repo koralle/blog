@@ -3,6 +3,7 @@ import { Outlet } from '@remix-run/react'
 import { ReactNode, useContext } from 'react'
 import { Header } from '~/components/header'
 import { AppearanceContext } from '~/contexts/AppearanceContext'
+import { Footer } from '~/components/footer'
 
 const Layout = ({ children }: { children?: ReactNode }) => {
   const appearance = useContext(AppearanceContext)
@@ -21,7 +22,9 @@ const Layout = ({ children }: { children?: ReactNode }) => {
           </main>
         </Box>
         <Box asChild>
-          <footer>This is a footer.</footer>
+          <footer>
+            <Footer />
+          </footer>
         </Box>
       </Grid>
     </Theme>
