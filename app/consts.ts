@@ -1,3 +1,3 @@
-const SITE_TITlE = 'Hello, world!' as const
+const SITE_TITlE = "koralle's Tech Blog" as const
 
 export { SITE_TITlE }
