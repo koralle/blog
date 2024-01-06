@@ -5,6 +5,8 @@ import parse from 'html-react-parser'
 import { cmsBlogContentListSchema } from '~/cms/schema'
 
 import type { EventContext } from '@cloudflare/workers-types'
+import { Grid } from '@radix-ui/themes'
+import { ArticleCard } from '~/components/ArticleCard'
 
 export const meta: MetaFunction = () => {
   return [
@@ -37,17 +39,20 @@ export const loader = async ({ context }: { context: EventContext<Env, string, u
   return json(fetchResult.value)
 }
 
-export default function Index() {
+const Index = () => {
   const data = useLoaderData<typeof loader>()
   return (
-    <div>
+    <Grid flow="column" columns="2" gap="3">
       {data.contents.map((content) => (
-        <div>
-          <h1>
-            <Link to={`/articles/${content.id}`}>{parse(content.title)}</Link>
-          </h1>
-        </div>
+        <ArticleCard
+          key={content.id}
+          title={content.title}
+          tagList={[]}
+          eyecatch={content.eyecatch}
+        />
       ))}
-    </div>
+    </Grid>
   )
 }
+
+export default Index
