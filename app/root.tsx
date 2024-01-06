@@ -1,5 +1,13 @@
 import type { LinkDescriptor, LinksFunction } from '@remix-run/cloudflare'
-import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
+import {
+  isRouteErrorResponse,
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  useRouteError,
+} from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
 import radixThemeCss from '@radix-ui/themes/styles.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
@@ -28,6 +36,8 @@ export const links: LinksFunction = () => [
 ]
 
 export default function App() {
+  const error = useRouteError()
+
   return (
     <html lang="en" className={htmlRoot}>
       <head>
@@ -39,7 +49,27 @@ export default function App() {
       <body className={bodyRoot}>
         <AppearanceProvider>
           <Layout>
-            <Outlet />
+            {error ? (
+              isRouteErrorResponse(error) ? (
+                <div>
+                  <h1>
+                    {error.status} {error.statusText}
+                  </h1>
+                  <p>{error.data}</p>
+                </div>
+              ) : error instanceof Error ? (
+                <div>
+                  <h1>
+                    {error.name} {error.message}
+                  </h1>
+                  <pre>{error.stack}</pre>
+                </div>
+              ) : (
+                <h1>Unknown Error</h1>
+              )
+            ) : (
+              <Outlet />
+            )}
           </Layout>
         </AppearanceProvider>
         <LiveReload />
