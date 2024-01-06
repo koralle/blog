@@ -1,4 +1,4 @@
-import { Box, Grid, Theme } from '@radix-ui/themes'
+import { Box, Container, Grid, Theme } from '@radix-ui/themes'
 import { Outlet } from '@remix-run/react'
 import { ReactNode, useContext } from 'react'
 import { Header } from '~/components/header'
@@ -17,9 +17,11 @@ const Layout = ({ children }: { children?: ReactNode }) => {
           </header>
         </Box>
         <Box asChild>
-          <main>
-            <Outlet />
-          </main>
+          <Container>
+            <main>
+              <Outlet />
+            </main>
+          </Container>
         </Box>
         <Box asChild>
           <footer>
