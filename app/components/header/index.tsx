@@ -22,7 +22,7 @@ const Header = () => {
           <Flex display="flex" justify="end" gap="4">
             <Box px="4">
               <Link asChild weight="bold" color="gray">
-                <RemixLink to="/">
+                <RemixLink to="/about">
                   <Text as="span" size="4">
                     About
                   </Text>

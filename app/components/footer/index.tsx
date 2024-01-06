@@ -25,7 +25,7 @@ const Footer = () => {
             </Box>
             <Box py="2">
               <Link asChild color="gray">
-                <RemixLink to="/" target="_blank" referrerPolicy="no-referrer">
+                <RemixLink to="/about" target="_self" referrerPolicy="no-referrer">
                   <Text as="span">このブログについて</Text>
                 </RemixLink>
               </Link>
