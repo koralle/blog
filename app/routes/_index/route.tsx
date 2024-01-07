@@ -1,12 +1,12 @@
 import { json, type MetaFunction } from '@remix-run/cloudflare'
-import { Link, useLoaderData } from '@remix-run/react'
+import { useLoaderData } from '@remix-run/react'
 import { createClient } from '~/cms/client'
-import parse from 'html-react-parser'
 import { cmsBlogContentListSchema } from '~/cms/schema'
 
 import type { EventContext } from '@cloudflare/workers-types'
-import { Grid } from '@radix-ui/themes'
 import { ArticleCard } from '~/components/ArticleCard'
+import { pageRootContainerStyles, pageRootStyles } from './page.css'
+import { Container } from '~/components/container'
 
 export const meta: MetaFunction = () => {
   return [
@@ -42,16 +42,20 @@ export const loader = async ({ context }: { context: EventContext<Env, string, u
 const Index = () => {
   const data = useLoaderData<typeof loader>()
   return (
-    <Grid flow="column" columns="2" gap="3">
-      {data.contents.map((content) => (
-        <ArticleCard
-          key={content.id}
-          title={content.title}
-          tagList={[]}
-          eyecatch={content.eyecatch}
-        />
-      ))}
-    </Grid>
+    <article>
+      <Container className={pageRootContainerStyles}>
+        <div className={pageRootStyles}>
+          {data.contents.map((content) => (
+            <ArticleCard
+              key={content.id}
+              title={content.title}
+              tagList={[]}
+              eyecatch={content.eyecatch}
+            />
+          ))}
+        </div>
+      </Container>
+    </article>
   )
 }
 

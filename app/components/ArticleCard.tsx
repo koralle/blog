@@ -10,23 +10,23 @@ type Props = {
 
 const ArticleCard = ({ title, tagList, eyecatch }: Props) => {
   return (
-    <Card className={rootStyle}>
+    <div className={rootStyle}>
       <Inset clip="padding-box" side="top" pb="current">
         <AspectRatio ratio={1200 / 630}>{eyecatch ? <img src={eyecatch.url} /> : null}</AspectRatio>
       </Inset>
-      <Grid gap="4">
-        <Box>
+      <div>
+        <div>
           <Text as="p" weight="bold" size="5">
             {title}
           </Text>
-        </Box>
-        <Flex direction="row" gap="2">
+        </div>
+        <div>
           {tagList.map((tag) => (
             <Badge>{tag}</Badge>
           ))}
-        </Flex>
-      </Grid>
-    </Card>
+        </div>
+      </div>
+    </div>
   )
 }
 
