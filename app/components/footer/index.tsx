@@ -2,9 +2,13 @@ import { Link, Separator, Text } from '@radix-ui/themes'
 import { Link as RemixLink } from '@remix-run/react'
 import { SITE_DESCRIPTION, SITE_TITlE } from '~/consts'
 import { Container } from '~/components/container'
-import { copyRightStyles, footerRootStyles, topNavigationStyles } from './footer.css'
-import { otherNavigationStyles } from './footer.css'
-import { ListItem } from './ListItem'
+import {
+  copyRightStyles,
+  footerRootStyles,
+  otherNavigationStyles,
+  topNavigationStyles,
+} from './styles.css'
+import { ListItem } from './list-item'
 
 const Footer = () => {
   return (

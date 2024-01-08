@@ -2,9 +2,9 @@ import { IconButton, Text } from '@radix-ui/themes'
 import { Link as RemixLink } from '@remix-run/react'
 import { Link } from '@radix-ui/themes'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
-import { ToggleAppearanceIconButton } from '~/components/header/ToggleAppearanceIconButton'
+import { ToggleAppearanceIconButton } from './toggle-appearance-button'
 import { SITE_TITlE } from '~/consts'
-import { gridStyles, rightComponentsStyles, rootStyles } from './header.css'
+import { gridStyles, rightComponentsStyles, rootStyles } from './styles.css'
 import { Container } from '~/components/container'
 
 const Header = () => {
