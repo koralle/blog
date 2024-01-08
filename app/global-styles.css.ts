@@ -1,15 +1,12 @@
-import { style } from '@vanilla-extract/css'
-import { siteThemeVars } from '~/styles/theme.css'
+import { globalStyle } from '@vanilla-extract/css'
 
-export const htmlRoot = style({
-  color: siteThemeVars.color.base,
+globalStyle('html', {
   fontSize: '10px',
   fontStyle: 'normal',
   fontVariant: 'normal',
   height: '100%',
 })
 
-export const bodyRoot = style({
-  color: siteThemeVars.color.base,
+globalStyle('body', {
   height: '100%',
 })
