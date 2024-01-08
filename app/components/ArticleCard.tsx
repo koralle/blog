@@ -1,6 +1,7 @@
-import { AspectRatio, Badge, Box, Card, Flex, Grid, Inset, Text } from '@radix-ui/themes'
+import { Badge, Box, Card, Flex, Grid, Inset, Text } from '@radix-ui/themes'
 import { Eyecatch } from '~/cms/schema'
 import { rootStyle } from './ArticleCard.css'
+import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 
 type Props = {
   title: string
