@@ -1,7 +1,8 @@
 import { style } from '@vanilla-extract/css'
+import { siteThemeVars } from '~/styles/theme.css'
 
 export const htmlRoot = style({
-  fontFamily: "'Noto Sans JP', sans-serif",
+  color: siteThemeVars.color.base,
   fontSize: '10px',
   fontStyle: 'normal',
   fontVariant: 'normal',
@@ -9,6 +10,6 @@ export const htmlRoot = style({
 })
 
 export const bodyRoot = style({
-  font: 'inherit',
+  color: siteThemeVars.color.base,
   height: '100%',
 })
