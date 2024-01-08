@@ -50,7 +50,8 @@ const Index = () => {
               key={content.id}
               articleTitle={content.title}
               tagList={[]}
-              eyecatch={content.eyecatch}
+              id={content.id}
+              eyeCatchUrl={content.eyecatch?.url}
             />
           ))}
         </div>
