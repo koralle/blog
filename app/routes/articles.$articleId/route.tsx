@@ -5,6 +5,7 @@ import type { EventContext } from '@cloudflare/workers-types'
 import { json, MetaFunction } from '@remix-run/cloudflare'
 import { cmsBlogContentSchema } from '~/cms/schema'
 import { useLoaderData } from '@remix-run/react'
+import { Container } from '~/components/container'
 
 export const meta: MetaFunction = () => {
   return []
@@ -40,12 +41,12 @@ const Index = () => {
   const data = useLoaderData<typeof loader>()
 
   return (
-    <div>
+    <Container>
       <h1>
         <span>{data.title}</span>
       </h1>
       <div>{data.content ? parse(data.content) : ''}</div>
-    </div>
+    </Container>
   )
 }
 
