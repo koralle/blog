@@ -1,5 +1,5 @@
 import { HTMLAttributes, ReactNode } from 'react'
-import { containerInnerStyles, contanerRootStyles } from './container.css'
+import { containerInnerStyles, contanerRootStyles } from './styles.css'
 import { clsx } from 'clsx'
 
 type Props = {

@@ -3,8 +3,8 @@ import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
 import radixThemeCss from '@radix-ui/themes/styles.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
-import { bodyRoot, htmlRoot } from '~/global.css'
-import { Layout } from '~/layout'
+import { bodyRoot, htmlRoot } from '~/global-styles.css'
+import { Layout } from '~/components/layout'
 import { AppearanceProvider } from '~/contexts/AppearanceProvider'
 
 const WebFontLinks: LinkDescriptor[] = [
@@ -29,7 +29,7 @@ export const links: LinksFunction = () => [
 
 export default function App() {
   return (
-    <html lang="en" className={htmlRoot}>
+    <html lang="ja" className={htmlRoot}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

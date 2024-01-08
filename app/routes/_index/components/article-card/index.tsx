@@ -1,10 +1,9 @@
 import { Badge, Link, Text } from '@radix-ui/themes'
-import { Eyecatch } from '~/cms/schema'
 import { rootStyle } from './styles.css'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 
 import { Link as RemixLink } from '@remix-run/react'
-import { Skelton } from './Skelton'
+import { Skelton } from '../skelton'
 
 type Props = {
   id: string

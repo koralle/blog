@@ -9,7 +9,7 @@ import {
   layoutFooterStyles,
   layoutHeaderStyles,
   layoutRootStyles,
-} from './layout.css'
+} from './styles.css'
 
 const Layout = ({ children }: { children?: ReactNode }) => {
   const appearance = useContext(AppearanceContext)
