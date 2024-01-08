@@ -48,7 +48,7 @@ const Index = () => {
           {data.contents.map((content) => (
             <ArticleCard
               key={content.id}
-              title={content.title}
+              articleTitle={content.title}
               tagList={[]}
               eyecatch={content.eyecatch}
             />

@@ -4,12 +4,12 @@ import { rootStyle } from './ArticleCard.css'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 
 type Props = {
-  title: string
+  articleTitle: string
   tagList: string[]
   eyecatch?: Eyecatch
 }
 
-const ArticleCard = ({ title, tagList, eyecatch }: Props) => {
+const ArticleCard = ({ articleTitle, tagList, eyecatch }: Props) => {
   return (
     <Card className={rootStyle}>
       <Inset clip="padding-box" side="top" pb="current">
@@ -18,7 +18,7 @@ const ArticleCard = ({ title, tagList, eyecatch }: Props) => {
       <Grid gap="4">
         <Box>
           <Text as="p" weight="bold" size="5">
-            {title}
+            {articleTitle}
           </Text>
         </Box>
         <Flex direction="row" gap="2">
