@@ -1,8 +1,6 @@
-import { Theme } from '@radix-ui/themes'
 import { Outlet } from '@remix-run/react'
-import { ReactNode, useContext } from 'react'
+import { ReactNode } from 'react'
 import { Header } from '~/components/header'
-import { AppearanceContext } from '~/contexts/AppearanceContext'
 import { Footer } from '~/components/footer'
 import {
   contentStyles,
@@ -10,24 +8,22 @@ import {
   layoutHeaderStyles,
   layoutRootStyles,
 } from './styles.css'
+import { clsx } from 'clsx'
+import { siteThemeClass } from '~/styles/theme.css'
 
 const Layout = ({ children }: { children?: ReactNode }) => {
-  const appearance = useContext(AppearanceContext)
-
   return (
-    <Theme asChild appearance={appearance}>
-      <div className={layoutRootStyles}>
-        <header className={layoutHeaderStyles}>
-          <Header />
-        </header>
-        <main id="main" className={contentStyles}>
-          <Outlet />
-        </main>
-        <footer className={layoutFooterStyles}>
-          <Footer />
-        </footer>
-      </div>
-    </Theme>
+    <div className={clsx(siteThemeClass, layoutRootStyles)}>
+      <header className={layoutHeaderStyles}>
+        <Header />
+      </header>
+      <main id="main" className={contentStyles}>
+        <Outlet />
+      </main>
+      <footer className={layoutFooterStyles}>
+        <Footer />
+      </footer>
+    </div>
   )
 }
 

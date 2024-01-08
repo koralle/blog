@@ -5,7 +5,6 @@ import radixThemeCss from '@radix-ui/themes/styles.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { bodyRoot, htmlRoot } from '~/global-styles.css'
 import { Layout } from '~/components/layout'
-import { AppearanceProvider } from '~/contexts/AppearanceProvider'
 
 const WebFontLinks: LinkDescriptor[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -21,9 +20,8 @@ const WebFontLinks: LinkDescriptor[] = [
 ]
 
 export const links: LinksFunction = () => [
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
   { rel: 'stylesheet', href: resetCss },
-  { rel: 'stylesheet', href: radixThemeCss },
+  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
   ...WebFontLinks,
 ]
 
@@ -37,11 +35,9 @@ export default function App() {
         <Links />
       </head>
       <body className={bodyRoot}>
-        <AppearanceProvider>
-          <Layout>
-            <Outlet />
-          </Layout>
-        </AppearanceProvider>
+        <Layout>
+          <Outlet />
+        </Layout>
         <LiveReload />
         <Scripts />
       </body>
