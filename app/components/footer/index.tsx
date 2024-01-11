@@ -6,9 +6,11 @@ import {
   copyRightStyles,
   footerRootStyles,
   otherNavigationStyles,
+  siteDescriptionStyles,
   topNavigationStyles,
 } from './styles.css'
 import { ListItem } from './list-item'
+import { siteTitleStyles } from '../header/styles.css'
 
 const Footer = () => {
   return (
@@ -17,15 +19,11 @@ const Footer = () => {
         <nav>
           <div className={topNavigationStyles}>
             <div>
-              <Link asChild weight="bold" color="gray">
-                <RemixLink to="/" target="_self">
-                  <Text size="5">{SITE_TITlE}</Text>
-                </RemixLink>
-              </Link>
+              <RemixLink to="/" target="_self">
+                <span className={siteTitleStyles}>{SITE_TITlE}</span>
+              </RemixLink>
             </div>
-            <Text as="p" size="3">
-              {SITE_DESCRIPTION}
-            </Text>
+            <span className={siteDescriptionStyles}>{SITE_DESCRIPTION}</span>
           </div>
           <div className={otherNavigationStyles}>
             <div>

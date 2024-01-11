@@ -1,28 +1,28 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import { IconButton } from '@radix-ui/themes'
 import { useCallback, useContext } from 'react'
-import { AppearanceContext, SetAppearanceContext } from '~/contexts/AppearanceContext'
+import { ColorSchemeContext, SetColorSchemeContext } from '~/contexts/colorSchemeContext'
 
-const ToggleAppearanceIconButton = () => {
-  const useAppearance = useContext(AppearanceContext)
-  const useSetAppearance = useContext(SetAppearanceContext)
+const ToggleColorSchemeIconButton = () => {
+  const useColorScheme = useContext(ColorSchemeContext)
+  const useSetColorScheme = useContext(SetColorSchemeContext)
 
   const onClick = useCallback(() => {
-    switch (useAppearance) {
+    switch (useColorScheme) {
       case 'light':
-        useSetAppearance('dark')
+        useSetColorScheme('dark')
         return
       case 'dark':
-        useSetAppearance('light')
+        useSetColorScheme('light')
         return
     }
-  }, [useAppearance, useSetAppearance])
+  }, [useColorScheme, useSetColorScheme])
 
   return (
     <IconButton radius="full" variant="soft" color="gray" onClick={onClick}>
-      {useAppearance === 'light' ? <MoonIcon /> : <SunIcon />}
+      {useColorScheme === 'light' ? <MoonIcon /> : <SunIcon />}
     </IconButton>
   )
 }
 
-export { ToggleAppearanceIconButton }
+export { ToggleColorSchemeIconButton }

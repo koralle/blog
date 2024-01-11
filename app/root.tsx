@@ -4,6 +4,9 @@ import resetCss from 'the-new-css-reset/css/reset.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { Layout } from '~/components/layout'
 import '~/global-styles.css'
+import { appId } from './styles/theme.css'
+import { Theme } from '@radix-ui/themes'
+import radixThemeCss from '@radix-ui/themes/styles.css'
 
 const WebFontLinks: LinkDescriptor[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -15,6 +18,10 @@ const WebFontLinks: LinkDescriptor[] = [
   {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap',
+  },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap',
   },
 ]
 
@@ -30,14 +37,15 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="dark light" />
         <Meta />
         <Links />
       </head>
       <body>
-        <Layout>
-          <Outlet />
-        </Layout>
+        <div id={appId}>
+          <Layout>
+            <Outlet />
+          </Layout>
+        </div>
         <LiveReload />
         <Scripts />
       </body>

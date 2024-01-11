@@ -1,10 +1,9 @@
 import { globalStyle } from '@vanilla-extract/css'
+import { appId, globalTheme } from './styles/theme.css'
 
 globalStyle('html', {
-  fontSize: '10px',
-  fontStyle: 'normal',
-  fontVariant: 'normal',
   height: '100%',
+  fontSize: '62.5%',
 })
 
 globalStyle('body', {
@@ -19,4 +18,9 @@ globalStyle('img', {
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   shapeMargin: '0.75rem',
+})
+
+globalStyle(`#${appId}`, {
+  fontFamily: globalTheme.font.fontFamily.base,
+  backgroundColor: globalTheme.color.base,
 })
