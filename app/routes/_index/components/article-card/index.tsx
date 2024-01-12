@@ -1,8 +1,7 @@
-import { Badge, Link, Text } from '@radix-ui/themes'
 import { rootStyle } from './styles.css'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
 
-import { Link as RemixLink } from '@remix-run/react'
+import { Link } from '@remix-run/react'
 import { Skelton } from '../skelton'
 
 type Props = {
@@ -22,18 +21,9 @@ const ArticleCard = ({ id, articleTitle, tagList, eyeCatchUrl: eyecatchUrl }: Pr
       </div>
       <div>
         <div>
-          <Link>
-            <RemixLink to={`/articles/${id}`}>
-              <Text as="p" weight="bold" size="5">
-                {articleTitle}
-              </Text>
-            </RemixLink>
+          <Link to={`/articles/${id}`}>
+            <span>{articleTitle}</span>
           </Link>
-        </div>
-        <div>
-          {tagList.map((tag) => (
-            <Badge>{tag}</Badge>
-          ))}
         </div>
       </div>
     </div>
