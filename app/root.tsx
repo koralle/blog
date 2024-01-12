@@ -1,7 +1,6 @@
 import type { LinkDescriptor, LinksFunction } from '@remix-run/cloudflare'
 import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
-import radixThemeCss from '@radix-ui/themes/styles.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { Layout } from '~/components/layout'
 

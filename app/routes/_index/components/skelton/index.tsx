@@ -1,4 +1,3 @@
-import { ImageIcon } from '@radix-ui/react-icons'
 import { iconStyles, rootStyles } from './styles.css'
 import { Link } from '@remix-run/react'
 

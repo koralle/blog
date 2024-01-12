@@ -1,5 +1,4 @@
-import { Link, Separator, Text } from '@radix-ui/themes'
-import { Link as RemixLink } from '@remix-run/react'
+import { Link } from '@remix-run/react'
 import { SITE_DESCRIPTION, SITE_TITlE } from '~/consts'
 import { Container } from '~/components/container'
 import {
@@ -17,59 +16,43 @@ const Footer = () => {
         <nav>
           <div className={topNavigationStyles}>
             <div>
-              <Link asChild weight="bold" color="gray">
-                <RemixLink to="/" target="_self">
-                  <Text size="5">{SITE_TITlE}</Text>
-                </RemixLink>
+              <Link to="/" target="_self">
+                <span>{SITE_TITlE}</span>
               </Link>
             </div>
-            <Text as="p" size="3">
-              {SITE_DESCRIPTION}
-            </Text>
+            <span>{SITE_DESCRIPTION}</span>
           </div>
           <div className={otherNavigationStyles}>
             <div>
               <div>
-                <Text as="span" weight="bold">
-                  About
-                </Text>
+                <span>About</span>
               </div>
               <ul>
                 <ListItem>
-                  <Link asChild color="gray">
-                    <RemixLink to="/about" target="_self" referrerPolicy="no-referrer">
-                      <Text as="span">このブログについて</Text>
-                    </RemixLink>
+                  <Link to="/about" target="_self" referrerPolicy="no-referrer">
+                    <span>このブログについて</span>
                   </Link>
                 </ListItem>
                 <ListItem>
-                  <Link asChild color="gray">
-                    <RemixLink to="/" target="_blank" referrerPolicy="no-referrer">
-                      <Text as="span">koralleについて</Text>
-                    </RemixLink>
+                  <Link to="/" target="_blank" referrerPolicy="no-referrer">
+                    <span>koralleについて</span>
                   </Link>
                 </ListItem>
               </ul>
             </div>
             <div>
               <div>
-                <Text as="span" weight="bold">
-                  Links
-                </Text>
+                <span>Links</span>
               </div>
               <ul>
                 <ListItem>
-                  <Link asChild color="gray">
-                    <RemixLink to="/" target="_blank" referrerPolicy="no-referrer">
-                      <Text as="span">GitHub</Text>
-                    </RemixLink>
+                  <Link to="/" target="_blank" referrerPolicy="no-referrer">
+                    <span>GitHub</span>
                   </Link>
                 </ListItem>
                 <ListItem>
-                  <Link asChild color="gray">
-                    <RemixLink to="/" target="_blank" referrerPolicy="no-referrer">
-                      <Text as="span">Twitter</Text>
-                    </RemixLink>
+                  <Link to="/" target="_blank" referrerPolicy="no-referrer">
+                    <span>Twitter</span>
                   </Link>
                 </ListItem>
               </ul>
@@ -77,11 +60,9 @@ const Footer = () => {
           </div>
         </nav>
       </Container>
-      <Separator orientation="horizontal" size="4" mt="2" />
+      <hr />
       <div className={copyRightStyles}>
-        <Text align="center" as="p">
-          &copy; 2024
-        </Text>
+        <span>&copy; 2024</span>
       </div>
     </div>
   )
