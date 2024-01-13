@@ -1,17 +1,21 @@
 import { style } from '@vanilla-extract/css'
+import { sprinkles } from '~/styles/theme.css'
 
-const rootStyles = style({
-  padding: '0 16px',
-})
+const rootStyles = style([
+  sprinkles({
+    fontSize: 'md',
+  }),
+  {},
+])
 
-const articleTitleStyles = style({
-  fontSize: '3rem',
-  '@media': {
-    '(width < 640px)': {
-      fontSize: '2.0rem',
+const articleTitleStyles = style([
+  sprinkles({
+    fontSize: {
+      mobile: 'lg',
+      desktop: 'xl',
     },
-  },
-})
+  }),
+])
 
 const h2Styles = style({
   fontSize: '2rem',

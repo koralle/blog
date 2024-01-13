@@ -5,25 +5,29 @@ import {
   copyRightStyles,
   footerRootStyles,
   otherNavigationStyles,
+  separatorStyles,
+  siteDescriptionStyles,
+  siteTitleStyles,
   topNavigationStyles,
 } from './styles.css'
 import { ListItem } from './list-item'
+import { Root as Separator } from '@radix-ui/react-separator'
 
 const Footer = () => {
   return (
     <div className={footerRootStyles}>
       <Container>
-        <nav>
+        <div>
           <div className={topNavigationStyles}>
             <div>
-              <Link to="/" target="_self">
+              <Link to="/" target="_self" className={siteTitleStyles}>
                 <span>{SITE_TITlE}</span>
               </Link>
             </div>
-            <span>{SITE_DESCRIPTION}</span>
+            <span className={siteDescriptionStyles}>{SITE_DESCRIPTION}</span>
           </div>
           <div className={otherNavigationStyles}>
-            <div>
+            <nav>
               <div>
                 <span>About</span>
               </div>
@@ -39,8 +43,8 @@ const Footer = () => {
                   </Link>
                 </ListItem>
               </ul>
-            </div>
-            <div>
+            </nav>
+            <nav>
               <div>
                 <span>Links</span>
               </div>
@@ -56,13 +60,13 @@ const Footer = () => {
                   </Link>
                 </ListItem>
               </ul>
-            </div>
+            </nav>
           </div>
-        </nav>
+        </div>
       </Container>
-      <hr />
-      <div className={copyRightStyles}>
-        <span>&copy; 2024</span>
+      <Separator className={separatorStyles} />
+      <div>
+        <span className={copyRightStyles}>&copy; 2024</span>
       </div>
     </div>
   )
