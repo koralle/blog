@@ -1,16 +1,15 @@
 import { style } from '@vanilla-extract/css'
-import { siteThemeVars } from '~/styles/theme.css'
+import { globalThemeVars, sprinkles } from '~/styles/theme.css'
 
 const layoutBaseStyles = style({
   width: '100%',
 })
 
 const layoutRootStyles = style([
+  sprinkles({}),
   layoutBaseStyles,
   {
     display: 'flex',
-    color: siteThemeVars.color.base,
-    fontFamily: siteThemeVars.fontFamily.base,
     width: '100%',
     minHeight: '100dvh',
     flexDirection: 'column',
@@ -20,16 +19,19 @@ const layoutRootStyles = style([
 
 const contentStyles = style([
   layoutBaseStyles,
-  {
-    paddingTop: 16,
-    paddingBottom: 32,
-  },
+  sprinkles({
+    pbs: '2xl',
+    pbe: '4lg',
+  }),
+  {},
 ])
 
 const layoutHeaderStyles = style([
   layoutBaseStyles,
   {
     display: 'block',
+    boxSizing: 'border-box',
+    backgroundColor: globalThemeVars.color.header.bg,
     position: 'sticky',
     top: 0,
     zIndex: '100',
@@ -40,6 +42,8 @@ const layoutFooterStyles = style([
   layoutBaseStyles,
   {
     display: 'block',
+    boxSizing: 'border-box',
+    backgroundColor: globalThemeVars.color.footer.bg,
   },
 ])
 

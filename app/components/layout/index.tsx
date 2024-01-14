@@ -9,11 +9,10 @@ import {
   layoutRootStyles,
 } from './styles.css'
 import { clsx } from 'clsx'
-import { siteThemeClass } from '~/styles/theme.css'
 
 const Layout = ({ children }: { children?: ReactNode }) => {
   return (
-    <div className={clsx(siteThemeClass, layoutRootStyles)}>
+    <div className={clsx(layoutRootStyles)}>
       <header className={layoutHeaderStyles}>
         <Header />
       </header>

@@ -1,30 +1,107 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
+import { globalThemeVars, sprinkles } from '~/styles/theme.css'
 
-const rootStyles = style({
-  padding: 16,
+const iconSize = 24
+const buttonSize = 44
+
+const rootStyles = style([
+  sprinkles({}),
+  {
+    color: globalThemeVars.color.header.fg,
+    boxSizing: 'border-box',
+    backgroundColor: globalThemeVars.color.header.bg,
+  },
+])
+
+globalStyle(`:where(${rootStyles}) a`, {
+  display: 'inline-block',
+  minWidth: 'max-content',
   minHeight: 'max-content',
 })
 
+const siteTitleStyles = style([
+  sprinkles({
+    fontFamily: 'siteTitle',
+    fontSize: 'lg',
+  }),
+  style({
+    display: 'inline-block',
+    lineHeight: '2.0em',
+  }),
+])
+
 const gridStyles = style({
-  boxSizing: 'border-box',
   display: 'grid',
   gridAutoFlow: 'column',
   gridTemplateColumns: 'max-content repeat(1, minmax(0, 1fr))',
 })
 
-const rightComponentsStyles = style({
+const rightComponentsStyles = style([
+  sprinkles({
+    mis: 'auto',
+    fontSize: 'md',
+  }),
+  {
+    display: 'none',
+    fontWeight: 'bold',
+    width: 'max-content',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    gap: globalThemeVars.spacing.lg,
+    '@media': {
+      '(min-width: 768px)': {
+        display: 'flex',
+      },
+    },
+  },
+])
+
+globalStyle(`${rightComponentsStyles} div:first-of-type`, {
   display: 'flex',
-  width: 'max-content',
   flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  marginLeft: 'auto',
-  gap: 16,
-  '@media': {
-    '(width < 640px)': {
-      display: 'none',
+  gap: `calc((${buttonSize}px - ${iconSize}px) / 2 + ${globalThemeVars.spacing.lg})`,
+})
+
+const navigationTitleStyles = style([
+  sprinkles({
+    fontSize: {
+      mobile: 'md',
+      tablet: 'md',
+    },
+  }),
+  {
+    fontWeight: 'bold',
+  },
+])
+
+const githubButtonStyles = style({
+  display: 'grid',
+  placeContent: 'center',
+  width: buttonSize,
+  height: buttonSize,
+  selectors: {
+    '&:hover': {
+      // TODO: ホバーした時のスタイルを変更
     },
   },
 })
 
-export { gridStyles, rightComponentsStyles, rootStyles }
+globalStyle(`${githubButtonStyles} a`, {
+  display: 'grid',
+  placeContent: 'center',
+})
+
+globalStyle(`${githubButtonStyles} svg`, {
+  width: iconSize,
+  height: iconSize,
+})
+
+export {
+  gridStyles,
+  navigationTitleStyles,
+  rightComponentsStyles,
+  rootStyles,
+  siteTitleStyles,
+  githubButtonStyles,
+}

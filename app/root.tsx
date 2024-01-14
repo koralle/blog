@@ -3,6 +3,9 @@ import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
 import { cssBundleHref } from '@remix-run/css-bundle'
 import { Layout } from '~/components/layout'
+import { appContainer } from './styles/theme.css'
+import { SITE_TITlE } from './consts'
+import '~/global-styles.css'
 
 const WebFontLinks: LinkDescriptor[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -14,6 +17,10 @@ const WebFontLinks: LinkDescriptor[] = [
   {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap',
+  },
+  {
+    rel: 'stylesheet',
+    href: `https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap&text=${SITE_TITlE}`,
   },
 ]
 
@@ -32,7 +39,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className={appContainer}>
         <Layout>
           <Outlet />
         </Layout>
