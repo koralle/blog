@@ -1,4 +1,5 @@
 import { defineProperties } from '@vanilla-extract/sprinkles'
+import { appContainerName } from './container.css'
 
 const fontFamily = {
   base: "'Noto Sans JP', 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'BIZ UDPGothic', Meiryo, sans-serif",
@@ -16,8 +17,8 @@ const fontSize = {
 export const fontSizeProperties = defineProperties({
   conditions: {
     mobile: {},
-    tablet: { '@media': 'screen and (min-width: 768px)' },
-    desktop: { '@media': 'screen and (min-width: 1024px)' },
+    tablet: { '@container': `${appContainerName} (min-width: 768px)` },
+    desktop: { '@container': `${appContainerName} (min-width: 1024px)` },
   },
   defaultCondition: 'mobile',
   properties: {

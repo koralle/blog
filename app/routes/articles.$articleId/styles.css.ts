@@ -17,14 +17,15 @@ const articleTitleStyles = style([
   }),
 ])
 
-const h2Styles = style({
-  fontSize: '2rem',
-  '@media': {
-    '(width < 640px)': {
-      fontSize: '1.5rem',
+const h2Styles = style([
+  sprinkles({
+    fontSize: {
+      mobile: 'md',
+      tablet: 'lg',
     },
-  },
-})
+  }),
+  {},
+])
 
 const codePreviewStyles = style({
   backgroundColor: '#f0f0f0',
