@@ -1,4 +1,5 @@
 import { globalStyle, style } from '@vanilla-extract/css'
+import { appContainerName } from '~/styles/container.css'
 import { globalThemeVars, sprinkles } from '~/styles/theme.css'
 
 const iconSize = 24
@@ -49,8 +50,8 @@ const rightComponentsStyles = style([
     alignItems: 'center',
     justifyContent: 'flex-end',
     gap: globalThemeVars.spacing.lg,
-    '@media': {
-      '(min-width: 768px)': {
+    '@container': {
+      [`${appContainerName} (min-width: 768px)`]: {
         display: 'flex',
       },
     },
