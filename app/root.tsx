@@ -5,6 +5,7 @@ import { cssBundleHref } from '@remix-run/css-bundle'
 import { Layout } from '~/components/layout'
 import { appContainer } from './styles/theme.css'
 import { SITE_TITlE } from './consts'
+import * as ScrollArea from '@radix-ui/react-scroll-area'
 import '~/global-styles.css'
 
 const WebFontLinks: LinkDescriptor[] = [
@@ -40,11 +41,18 @@ export default function App() {
         <Links />
       </head>
       <body className={appContainer}>
-        <Layout>
-          <Outlet />
-        </Layout>
-        <LiveReload />
-        <Scripts />
+        <ScrollArea.Root>
+          <ScrollArea.Viewport>
+            <Layout>
+              <Outlet />
+            </Layout>
+            <LiveReload />
+            <Scripts />
+          </ScrollArea.Viewport>
+          <ScrollArea.Scrollbar orientation="horizontal">
+            <ScrollArea.Thumb />
+          </ScrollArea.Scrollbar>
+        </ScrollArea.Root>
       </body>
     </html>
   )
