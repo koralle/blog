@@ -1,4 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite'
+import { mergeConfig } from 'vite'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 const config: StorybookConfig = {
   stories: [
@@ -18,6 +20,11 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag',
+  },
+  viteFinal: (config) => {
+    return mergeConfig(config, {
+      plugins: [vanillaExtractPlugin()],
+    })
   },
 }
 export default config
