@@ -1,6 +1,5 @@
 import React from 'react'
 import type { Preview } from '@storybook/react'
-import { Theme } from '@radix-ui/themes'
 
 const preview = {
   parameters: {
@@ -13,13 +12,7 @@ const preview = {
     },
     layout: 'fullscreen',
   },
-  decorators: [
-    (Story) => (
-      <Theme>
-        <Story />
-      </Theme>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
 } satisfies Preview
 
 export default preview
