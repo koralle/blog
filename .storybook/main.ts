@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 import { mergeConfig } from 'vite'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
+import { resolve } from 'node:path'
 
 const config: StorybookConfig = {
   stories: [
@@ -23,6 +24,11 @@ const config: StorybookConfig = {
   },
   viteFinal: (config) => {
     return mergeConfig(config, {
+      resolve: {
+        alias: {
+          '~': resolve(__dirname, '../app'),
+        },
+      },
       plugins: [vanillaExtractPlugin()],
     })
   },
