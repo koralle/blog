@@ -61,6 +61,7 @@
     "bun-types": "^1.0.15",
     "storybook": "^7.6.6",
     "typescript": "^5.1.0",
+    "vite": "^5.0.12",
     "vitest": "^1.0.2",
     "wrangler": "3.8.0"
   }
