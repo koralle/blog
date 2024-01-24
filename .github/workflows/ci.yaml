@@ -13,19 +13,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+      - name: Setup Node
+        uses: actions/setup-node@v4.0.1
         with:
-          bun-version: 1.0.15
+          node-version: 20.x
+
+      - name: Setup Pnpm
+        uses: pnpm/actions-setup@v2.4.0
+        with:
+          version: 8
+          run_install: false
 
       - name: Install dependencies
-        run: bun install
-
-      - name: Check lockfiles' diff
-        run: diff <(bun bun.lockb) yarn.lock
+        run: pnpm install
 
       - name: Build
-        run: bun run build
+        run: pnpm run build
 
       - name: Paths Filter
         id: changes
