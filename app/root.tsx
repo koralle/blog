@@ -28,6 +28,7 @@ export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: resetCss },
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
   ...WebFontLinks,
+  { rel: 'icon', href: '/favicon.ico' },
 ]
 
 export default function App() {
