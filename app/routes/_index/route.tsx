@@ -8,16 +8,6 @@ import { ArticleCard } from './components/article-card'
 import { pageRootContainerStyles, pageRootStyles } from './styles.css'
 import { Container } from '~/components/container'
 
-export const meta: MetaFunction = () => {
-  return [
-    { title: 'New Remix App' },
-    {
-      name: 'description',
-      content: 'Welcome to Remix!',
-    },
-  ]
-}
-
 export const loader = async ({ context }: { context: EventContext<Env, string, unknown> }) => {
   // FIXME: いい感じにContextに含めるようにしたい
   const apiKey = context.env.MICROCMS_API_KEY
