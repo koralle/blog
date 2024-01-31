@@ -36,7 +36,7 @@ jobs:
           version: latest
 
       - name: Biome check
-        run: biome ci ./app --config-path biome.json
+        run: biome check ./app
 
   ci-build:
     runs-on: ubuntu-latest
