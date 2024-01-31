@@ -6,9 +6,41 @@ on:
       - main
 
 jobs:
-  ci:
+  ci-changes:
     runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Paths Filter
+        id: changes
+        uses: dorny/paths-filter@v2.11.1
+        with:
+          filters: |
+            src:
+              - 'app/**'
+
+  ci-biome:
+    runs-on: ubuntu-latest
+    needs: ci-changes
+    if: ${{ needs.changes.outputs.ci-changes == 'true' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Setup Biome
+        if: steps.changes.outputs.src == 'true'
+        uses: actions/setup-biome@v2.1.0
+        with:
+          version: latest
+
+      - name: Biome check
+        run: biome check ./app --config biome.json
+
+  ci-build:
+    runs-on: ubuntu-latest
+    needs: ci-biome
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -29,14 +61,6 @@ jobs:
 
       - name: Build
         run: pnpm run build
-
-      - name: Paths Filter
-        id: changes
-        uses: dorny/paths-filter@v2.11.1
-        with:
-          filters: |
-            src:
-              - 'app/**'
 
       - name: Deploy to Cloudflare Pages
         if: steps.changes.outputs.src == 'true'
