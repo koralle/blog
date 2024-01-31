@@ -1,6 +1,6 @@
+import { clsx } from 'clsx'
 import { HTMLAttributes, ReactNode } from 'react'
 import { containerInnerStyles, containerRootStyles } from './styles.css'
-import { clsx } from 'clsx'
 
 type Props = {
   children?: ReactNode

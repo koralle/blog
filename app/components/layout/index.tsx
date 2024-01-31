@@ -1,14 +1,14 @@
 import { Outlet } from '@remix-run/react'
+import { clsx } from 'clsx'
 import { ReactNode } from 'react'
-import { Header } from '~/components/header'
 import { Footer } from '~/components/footer'
+import { Header } from '~/components/header'
 import {
   contentStyles,
   layoutFooterStyles,
   layoutHeaderStyles,
   layoutRootStyles,
 } from './styles.css'
-import { clsx } from 'clsx'
 
 const Layout = ({ children }: { children?: ReactNode }) => {
   return (
