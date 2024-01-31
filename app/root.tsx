@@ -1,11 +1,11 @@
 import type { LinkDescriptor, LinksFunction, MetaFunction } from '@remix-run/cloudflare'
+import { cssBundleHref } from '@remix-run/css-bundle'
 import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
 import resetCss from 'the-new-css-reset/css/reset.css'
-import { cssBundleHref } from '@remix-run/css-bundle'
 import { Layout } from '~/components/layout'
-import { appContainer } from './styles/theme.css'
-import { SITE_DESCRIPTION, SITE_TITlE } from './consts'
 import '~/global-styles.css'
+import { SITE_DESCRIPTION, SITE_TITlE } from './consts'
+import { appContainer } from './styles/theme.css'
 
 const WebFontLinks: LinkDescriptor[] = [
   { rel: 'preconnect', href: 'https://fonts.googleapis.com' },

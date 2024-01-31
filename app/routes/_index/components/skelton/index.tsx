@@ -1,5 +1,5 @@
-import { iconStyles, rootStyles } from './styles.css'
 import { Link } from '@remix-run/react'
+import { iconStyles, rootStyles } from './styles.css'
 
 type Props = {
   id: string

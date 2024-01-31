@@ -1,6 +1,8 @@
+import { Root as Separator } from '@radix-ui/react-separator'
 import { Link } from '@remix-run/react'
-import { SITE_DESCRIPTION, SITE_TITlE } from '~/consts'
 import { Container } from '~/components/container'
+import { SITE_DESCRIPTION, SITE_TITlE } from '~/consts'
+import { ListItem } from './list-item'
 import {
   copyRightStyles,
   footerRootStyles,
@@ -10,8 +12,6 @@ import {
   siteTitleStyles,
   topNavigationStyles,
 } from './styles.css'
-import { ListItem } from './list-item'
-import { Root as Separator } from '@radix-ui/react-separator'
 
 const Footer = () => {
   return (
