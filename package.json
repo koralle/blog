@@ -37,6 +37,7 @@
     "microcms-js-sdk": "^2.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remix-hono": "^0.0.15",
     "the-new-css-reset": "^1.11.2",
     "valibot": "^0.23.0"
   },
