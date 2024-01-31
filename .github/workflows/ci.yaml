@@ -26,18 +26,17 @@ jobs:
     runs-on: ubuntu-latest
     needs: ci-changes
     if: ${{ needs.ci-changes.outputs.app == 'true' }}
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
 
       - name: Setup Biome
-        uses: mongolyy/reviewdog-action-biome@v1.1.1
+        uses: biomejs/setup-biome@v2.1.0
         with:
-          github-token: ${{ secrets.gtihub_token }}
-          reporter: github-pr-review
+          version: latest
+
+      - name: Biome check
+        run: biome check ./app
 
   ci-build:
     runs-on: ubuntu-latest
