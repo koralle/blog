@@ -50,7 +50,11 @@ const Footer = () => {
               </div>
               <ul>
                 <ListItem>
-                  <Link to="/" target="_blank" referrerPolicy="no-referrer">
+                  <Link
+                    to="https://github.com/koralle"
+                    target="_blank"
+                    referrerPolicy="no-referrer"
+                  >
                     <span>GitHub</span>
                   </Link>
                 </ListItem>
