@@ -34,7 +34,7 @@ jobs:
 
       - name: Paths Filter
         id: changes
-        uses: dorny/paths-filter@v2.11.1
+        uses: dorny/paths-filter@v3.0.2
         with:
           filters: |
             src:
