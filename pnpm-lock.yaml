@@ -45,8 +45,8 @@ dependencies:
     specifier: ^11.9.0
     version: 11.9.0
   hono:
-    specifier: ^3.12.9
-    version: 3.12.9
+    specifier: ^4.1.3
+    version: 4.1.3
   html-react-parser:
     specifier: ^5.0.7
     version: 5.0.7(react@18.2.0)
@@ -8321,6 +8321,11 @@ packages:
 
   /hono@3.12.9:
     resolution: {integrity: sha512-JhurtI3+VspowZoP3dv6BylhUPIpTWNRlBsVfb5UbI/tmMGqd6RpeexGO7RjnrSG9Vqwb1ydKp7HHTTcYJU5Zw==}
+    engines: {node: '>=16.0.0'}
+    dev: false
+
+  /hono@4.1.3:
+    resolution: {integrity: sha512-V0I6qCw0gn2MA4LLtyXe6oD3/7ToeQf5Zv98o7uSuLuViQgWHJeYoYrZ4NbXhOtg4SaZjNJJm1+XuFB3LN+j6A==}
     engines: {node: '>=16.0.0'}
     dev: false
 
