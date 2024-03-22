@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.6.1",
-    "@cloudflare/workers-types": "^4.20240314.0",
+    "@cloudflare/workers-types": "^4.20240320.1",
     "@remix-run/dev": "^2.8.1",
     "@remix-run/eslint-config": "^2.8.1",
     "@remix-run/testing": "^2.8.1",
@@ -63,9 +63,9 @@
     "@vanilla-extract/vite-plugin": "^4.0.6",
     "msw": "^2.2.9",
     "storybook": "^7.6.17",
-    "typescript": "^5.4.2",
+    "typescript": "^5.4.3",
     "vite": "^5.2.2",
     "vitest": "^1.4.0",
-    "wrangler": "3.35.0"
+    "wrangler": "3.36.0"
   }
 }
