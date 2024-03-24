@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "build": "remix vite:build",
-    "dev": "remix vite:build && wrangler pages dev ./build/client",
+    "dev": "remix vite:dev",
     "start": "wrangler pages dev --compatibility-date=2023-06-21 ./build/client",
     "typecheck": "tsc",
     "pages:deploy": "pnpm build && wrangler pages deploy ./build/client",
@@ -64,6 +64,8 @@
     "@types/react-dom": "^18.2.22",
     "@vanilla-extract/vite-plugin": "^4.0.6",
     "msw": "^2.2.10",
+    "remark-frontmatter": "5.0.0",
+    "remark-mdx-frontmatter": "4.0.0",
     "storybook": "^7.6.17",
     "typescript": "^5.4.3",
     "vite": "^5.2.5",

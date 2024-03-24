@@ -9,6 +9,7 @@ const About = () => {
       <section>
         <p>
           <span>T.B.D</span>
+          <span>T.B.D</span>
         </p>
       </section>
     </article>

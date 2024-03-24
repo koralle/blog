@@ -7,3 +7,9 @@ declare type Env = {
   MICROCMS_SERVICE_NAME: string
   MICROCMS_API_VERSION: string
 }
+
+declare module '*.mdx' {
+  let MDXComponent: (props: any) => JSX.Element
+  export const frontmatter: any
+  export default MDXComponent
+}
