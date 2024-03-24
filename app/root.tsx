@@ -1,5 +1,5 @@
 import type { LinkDescriptor, LinksFunction, MetaFunction } from '@remix-run/cloudflare'
-import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
+import { Links, Meta, Outlet, Scripts } from '@remix-run/react'
 import 'the-new-css-reset/css/reset.css'
 import { Layout } from '~/components/layout'
 import '~/global-styles.css'
@@ -49,7 +49,6 @@ export default function App() {
         <Layout>
           <Outlet />
         </Layout>
-        <LiveReload />
         <Scripts />
       </body>
     </html>
