@@ -1,10 +1,13 @@
+import parse, { domToReact, Element, type HTMLReactParserOptions } from 'html-react-parser'
 import { createClient } from '~/cms/client'
-import parse, { domToReact, Element, HTMLReactParserOptions } from 'html-react-parser'
 
 import type { EventContext } from '@cloudflare/workers-types'
-import { json, MetaFunction } from '@remix-run/cloudflare'
-import { cmsBlogContentSchema } from '~/cms/schema'
+import { type MetaFunction, json } from '@remix-run/cloudflare'
 import { useLoaderData } from '@remix-run/react'
+import { clsx } from 'clsx'
+import hjis from 'highlight.js'
+import 'highlight.js/styles/github.css'
+import { cmsBlogContentSchema } from '~/cms/schema'
 import { Container } from '~/components/container'
 import {
   articleTitleStyles,
@@ -13,9 +16,6 @@ import {
   h2Styles,
   rootStyles,
 } from './styles.css'
-import hjis from 'highlight.js'
-import 'highlight.js/styles/github.css'
-import { clsx } from 'clsx'
 
 export const meta: MetaFunction = () => {
   return []

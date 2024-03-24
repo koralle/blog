@@ -1,9 +1,9 @@
-import { createSprinkles } from '@vanilla-extract/sprinkles'
-import { fontFamilyProperties, fontSize, fontSizeProperties } from './font.css'
-import { spacing, spacingProperties } from './spacing.css'
 import { createGlobalTheme, createThemeContract, style } from '@vanilla-extract/css'
+import { createSprinkles } from '@vanilla-extract/sprinkles'
 import { color } from './color.css'
 import { appContainerName } from './container.css'
+import { fontFamilyProperties, fontSize, fontSizeProperties } from './font.css'
+import { spacing, spacingProperties } from './spacing.css'
 
 export const globalThemeVars = createThemeContract({
   fontSize: {

@@ -1,5 +1,5 @@
-import { rootStyle } from './styles.css'
 import { AspectRatio } from '@radix-ui/react-aspect-ratio'
+import { rootStyle } from './styles.css'
 
 import { Link } from '@remix-run/react'
 import { Skelton } from '../skelton'

@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw'
-import { FetchContentListResponseBody, FetchSingleContentResponseBody } from '~/cms/schema'
+import type { FetchContentListResponseBody, FetchSingleContentResponseBody } from '~/cms/schema'
 
 const serviceName = import.meta.env.MICROCMS_SERVICE_NAME
 const apiVersion = import.meta.env.MICROCMS_API_VERSION

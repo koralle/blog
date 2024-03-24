@@ -1,7 +1,7 @@
-import type { StorybookConfig } from '@storybook/react-vite'
-import { mergeConfig } from 'vite'
-import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { resolve } from 'node:path'
+import type { StorybookConfig } from '@storybook/react-vite'
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
+import { mergeConfig } from 'vite'
 
 const config: StorybookConfig = {
   stories: [
