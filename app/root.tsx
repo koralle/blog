@@ -1,7 +1,6 @@
 import type { LinkDescriptor, LinksFunction, MetaFunction } from '@remix-run/cloudflare'
-import { cssBundleHref } from '@remix-run/css-bundle'
 import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react'
-import resetCss from 'the-new-css-reset/css/reset.css'
+import 'the-new-css-reset/css/reset.css'
 import { Layout } from '~/components/layout'
 import '~/global-styles.css'
 import { SITE_DESCRIPTION, SITE_TITlE } from './consts'
@@ -24,12 +23,7 @@ const WebFontLinks: LinkDescriptor[] = [
   },
 ]
 
-export const links: LinksFunction = () => [
-  { rel: 'stylesheet', href: resetCss },
-  ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
-  ...WebFontLinks,
-  { rel: 'icon', href: '/favicon.ico' },
-]
+export const links: LinksFunction = () => [...WebFontLinks, { rel: 'icon', href: '/favicon.ico' }]
 
 export const meta: MetaFunction = () => {
   return [
