@@ -7,6 +7,8 @@ node_modules
 /functions/version.txt
 /public/build
 .dev.vars
+build
+.wrangler
 
 # .DS_Store
 **/.DS_Store
