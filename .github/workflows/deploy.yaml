@@ -47,5 +47,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           projectName: blog
-          directory: ./public
+          directory: ./build/client
           gitHubToken: ${{ secrets.GTIHUB_TOKEN }}
