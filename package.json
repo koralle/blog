@@ -42,7 +42,7 @@
     "valibot": "^0.30.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.1",
+    "@biomejs/biome": "^1.6.2",
     "@cloudflare/workers-types": "^4.20240320.1",
     "@remix-run/dev": "^2.8.1",
     "@remix-run/eslint-config": "^2.8.1",
@@ -58,14 +58,14 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@testing-library/user-event": "^14.5.2",
-    "@types/react": "^18.2.67",
+    "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
     "@vanilla-extract/vite-plugin": "^4.0.6",
-    "msw": "^2.2.9",
+    "msw": "^2.2.10",
     "storybook": "^7.6.17",
     "typescript": "^5.4.3",
-    "vite": "^5.2.2",
+    "vite": "^5.2.5",
     "vitest": "^1.4.0",
-    "wrangler": "3.36.0"
+    "wrangler": "3.37.0"
   }
 }
