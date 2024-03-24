@@ -9,7 +9,7 @@ jobs:
   ci-changes:
     runs-on: ubuntu-latest
     outputs:
-      app: ${{ steps.changes.outputs.app }}
+      src: ${{ steps.changes.outputs.src }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -19,13 +19,18 @@ jobs:
         uses: dorny/paths-filter@v3.0.2
         with:
           filters: |
-            app:
+            src:
+              - 'vite.config.mts'
+              - 'load-context.ts'
+              - 'env.d.ts'
+              - 'tsconfig.json'
               - 'app/**'
+              - 'functions/**'
 
   ci-biome:
     runs-on: ubuntu-latest
     needs: ci-changes
-    if: ${{ needs.ci-changes.outputs.app == 'true' }}
+    if: ${{ needs.ci-changes.outputs.src == 'true' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -63,12 +68,11 @@ jobs:
         run: pnpm run build
 
       - name: Deploy to Cloudflare Pages
-        if: steps.changes.outputs.src == 'true'
         uses: cloudflare/pages-action@1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           projectName: blog
-          directory: ./public
+          directory: ./build/client
           gitHubToken: ${{ secrets.GTIHUB_TOKEN }}
 
