@@ -3,6 +3,9 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignore": ["node_modules", "functions", ".git", ".github", ".cache", "public"]
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -20,8 +23,8 @@
   },
   "formatter": {
     "enabled": true,
+    "ignore": ["node_modules"],
     "formatWithErrors": false,
-    "ignore": [],
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100
