@@ -19,6 +19,7 @@
     "fix": "biome check . --apply"
   },
   "dependencies": {
+    "@mdx-js/rollup": "3.0.1",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-scroll-area": "^1.0.5",
