@@ -1,6 +1,8 @@
 import {
+  url,
+  type BaseSchema,
+  type Output,
   array,
-  BaseSchema,
   intersect,
   minLength,
   minValue,
@@ -8,13 +10,11 @@ import {
   number,
   object,
   optional,
-  Output,
   safeInteger,
   string,
-  url,
 } from 'valibot'
-import { AsyncResult } from '~/utils/types'
-import { CmsError } from './errors'
+import type { AsyncResult } from '~/utils/types'
+import type { CmsError } from './errors'
 
 const contentIdSchema = object({
   id: nonNullish(string([minLength(0)]), "Field `id` mustn't be nullish."),

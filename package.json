@@ -13,9 +13,10 @@
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "biome lint --apply ./app",
-    "format": "biome format ./app --write",
-    "check": "biome check --apply ./app"
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check .",
+    "fix": "biome check . --apply"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^1.0.3",

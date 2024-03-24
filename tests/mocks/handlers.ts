@@ -1,4 +1,4 @@
-import { HttpHandler } from 'msw'
+import type { HttpHandler } from 'msw'
 import { fetchContentList, fetchSingleContent } from './api/v1/blogs'
 
 type HttpHandlers = readonly HttpHandler[]

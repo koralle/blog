@@ -1,7 +1,7 @@
+import { type BaseSchema, type Output, ValiError, parse } from 'valibot'
+import type { AsyncResult, Result } from '~/utils/types'
 import { CmsError } from './errors'
-import { BaseSchema, Output, parse, ValiError } from 'valibot'
 import type { CmsClient, CmsClientOpts } from './schema'
-import { AsyncResult, Result } from '~/utils/types'
 
 const createClient = ({
   serviceName,

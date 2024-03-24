@@ -1,5 +1,6 @@
-import { Link as RemixLink } from '@remix-run/react'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { Link as RemixLink } from '@remix-run/react'
+import { Container } from '~/components/container'
 import { SITE_TITlE } from '~/consts'
 import {
   githubButtonStyles,
@@ -8,7 +9,6 @@ import {
   rootStyles,
   siteTitleStyles,
 } from './styles.css'
-import { Container } from '~/components/container'
 
 const Header = () => {
   return (

@@ -1,5 +1,5 @@
-import { afterAll, afterEach, beforeAll, vi } from 'vitest'
 import { mockServer } from 'tests/mocks/server'
+import { afterAll, afterEach, beforeAll, vi } from 'vitest'
 
 beforeAll(() => {
   vi.stubEnv('MICROCMS_API_KEY', 'test')
