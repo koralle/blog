@@ -45,8 +45,8 @@ jobs:
               - 'app/**'
               - 'functions/**'
             ci:
-              - '.github/ci.yaml'
-              - '.github/deploy.yaml'
+              - '.github/workflows/ci.yaml'
+              - '.github/workflows/deploy.yaml'
 
       - name: Deploy to Cloudflare Pages
         if: steps.changes.outputs.src == 'true' || steps.changes.outputs.ci == 'true'
