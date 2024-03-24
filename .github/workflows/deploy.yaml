@@ -38,10 +38,18 @@ jobs:
         with:
           filters: |
             src:
+              - 'vite.config.mts'
+              - 'load-context.ts'
+              - 'env.d.ts'
+              - 'tsconfig.json'
               - 'app/**'
+              - 'functions/**'
+            ci:
+              - '.github/ci.yaml'
+              - '.github/deploy.yaml'
 
       - name: Deploy to Cloudflare Pages
-        if: steps.changes.outputs.src == 'true'
+        if: steps.changes.outputs.src == 'true' || steps.changes.outputs.ci == 'true'
         uses: cloudflare/pages-action@1
         with:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
