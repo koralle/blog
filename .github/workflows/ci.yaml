@@ -12,7 +12,7 @@ jobs:
       src: ${{ steps.changes.outputs.src }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Paths Filter
         id: changes
@@ -33,10 +33,10 @@ jobs:
     if: ${{ needs.ci-changes.outputs.src == 'true' }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Biome
-        uses: biomejs/setup-biome@v2.1.1
+        uses: biomejs/setup-biome@v2.2.1
         with:
           version: latest
 
@@ -48,10 +48,10 @@ jobs:
     needs: ci-biome
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.1
+        uses: actions/checkout@v4.2.2
 
       - name: Setup Node
-        uses: actions/setup-node@v4.0.2
+        uses: actions/setup-node@v4.1.0
         with:
           node-version: 20.x
 
